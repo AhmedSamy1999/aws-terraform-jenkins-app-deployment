@@ -15,13 +15,15 @@ cd python-mysql-db
 
 pip3 install --break-system-packages -r requirements.txt
 
-echo "${rds_endpoint}" > /home/ubuntu/db_config.txt
+echo "${rds_endpoint}" | sudo tee /home/ubuntu/python-mysql-db/db_config.txt > /dev/null
+
 
 echo 'Waiting 5 seconds before starting app...'
 sleep 5
 
 # Start the app in the background
-setsid python3 -u app.py > /home/ubuntu/flask.log 2>&1 &
+setsid python3 -u app.py &
+
 sleep 5 
 
 curl http://zyhosttest/create_table
