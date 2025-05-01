@@ -12,6 +12,6 @@ public_key = "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHwSg3kTQFUoKTk4C3kR8lNhCt9TCY
 ec2_ami_id     = "ami-03250b0e01c28d196"
 
 
-ec2_user_data_install_apache = ""
+ec2_user_data_install_app = ""
 
 domain_name = "zyhosttest.online"

@@ -1,3 +1,6 @@
+
+
+
 module "networking" {
   source               = "./networking"
   vpc_cidr             = var.vpc_cidr
@@ -25,7 +28,10 @@ module "ec2" {
   sg_enable_ssh_https      = module.security_group.sg_ec2_sg_ssh_http_id
   ec2_sg_name_for_python_api     = module.security_group.sg_ec2_for_python_api
   enable_public_ip_address = true
-  user_data_install_apache = templatefile("./template/ec2_install_apache.sh", {})
+  rds_endpoint = local.rds_endpoint
+  user_data_install_app = templatefile("./template/ec2_install_app.sh", {
+    rds_endpoint = local.rds_endpoint
+  })
 }
 
 module "lb_target_group" {
@@ -78,4 +84,9 @@ module "rds_db_instance" {
   mysql_username       = "dbuser"
   mysql_password       = "dbpassword"
   mysql_dbname         = "devprojdb"
+  
+}
+
+locals {
+  rds_endpoint = module.rds_db_instance.rds_endpoint
 }

@@ -6,6 +6,14 @@ variable "mysql_username" {}
 variable "mysql_password" {}
 variable "mysql_dbname" {}
 
+  
+
+
+
+output "rds_endpoint" {
+  value = aws_db_instance.default.endpoint
+}
+
 # RDS Subnet Group
 resource "aws_db_subnet_group" "dev_proje_1_db_subnet_group" {
   name       = var.db_subnet_group_name
@@ -28,5 +36,7 @@ resource "aws_db_instance" "default" {
   apply_immediately       = true
   backup_retention_period = 0
   deletion_protection     = false
+ 
+
 }
 
