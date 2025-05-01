@@ -88,5 +88,9 @@ module "rds_db_instance" {
 }
 
 locals {
-  rds_endpoint = module.rds_db_instance.rds_endpoint
+  rds_endpoint = split(":", module.rds_db_instance.rds_endpoint)[0]
+}
+
+output "rds_endpoint" {
+  value = module.rds_db_instance.rds_endpoint
 }
