@@ -13,7 +13,8 @@ sleep 10
 cd python-mysql-db
 
 
-pip3 install --break-system-packages -r requirements.txt
+pip3 install --user --break-system-packages -r requirements.txt
+
 sleep 10
 echo "${rds_endpoint}" | sudo tee /home/ubuntu/python-mysql-db/db_config.txt > /dev/null
 
