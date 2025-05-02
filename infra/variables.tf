@@ -20,7 +20,7 @@ variable "vpc_cidr" {
 
 variable "vpc_name" {
   type        = string
-  description = "DevOps Project 1 VPC 1"
+  description = " VPC 1"
 }
 
 variable "cidr_public_subnet" {
@@ -40,17 +40,17 @@ variable "eu_availability_zone" {
 
 variable "public_key" {
   type        = string
-  description = "DevOps Project 1 Public key for EC2 instance"
+  description = " Public key for EC2 instance"
 }
 
 variable "ec2_ami_id" {
   type        = string
-  description = "DevOps Project 1 AMI Id for EC2 instance"
+  description = " AMI Id for EC2 instance"
 }
 
 variable "ec2_user_data_install_app" {
   type = string
-  description = "Script for installing the Apache2"
+  description = "Script for installing the App"
 }
 
 variable "domain_name" {

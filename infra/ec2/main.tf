@@ -31,8 +31,8 @@ resource "aws_instance" "dev_proj_1_ec2" {
   user_data = var.user_data_install_app
 
   metadata_options {
-    http_endpoint = "enabled"  # Enable the IMDSv2 endpoint
-    http_tokens   = "required" # Require the use of IMDSv2 tokens
+    http_endpoint = "enabled"  # Enable the IMDSv2 endpoint [Allow metadata access from inside EC2]
+    http_tokens   = "required" # Require the use of IMDSv2 tokens [	Force use of IMDSv2 (token-based access)]
   }
 }
 
